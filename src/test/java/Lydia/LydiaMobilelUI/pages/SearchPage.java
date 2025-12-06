@@ -47,6 +47,7 @@ public class SearchPage {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         
         choose_city.click();
+        Thread.sleep(3000);
 
     }
     
@@ -55,7 +56,7 @@ public class SearchPage {
     
     private final static By closeButtonLocator = AppiumBy.accessibilityId("Close");
     
-    public static boolean dismissPopupIfPresent()  {
+    public static boolean dismissPopupIfPresent() throws InterruptedException  {
         
     	
     	final int TIMEOUT_SECONDS = 5; 
@@ -67,6 +68,7 @@ public class SearchPage {
         
         try {
 
+        Thread.sleep(2000);
         // Wait for the main popup element to be visible/present.
        
         WebElement popupElement = wait.until(ExpectedConditions.presenceOfElementLocated(popupLocator));
@@ -77,6 +79,8 @@ public class SearchPage {
       
         WebElement closeButton = wait.until(ExpectedConditions.elementToBeClickable(closeButtonLocator));
         closeButton.click();
+        
+        Thread.sleep(2000);
         
         System.out.println("Close button clicked. Popup dismissed successfully.");
 		return true;

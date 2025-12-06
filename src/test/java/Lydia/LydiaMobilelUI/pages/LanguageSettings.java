@@ -35,7 +35,7 @@ public class LanguageSettings {
 	 
     
 
-     public static boolean clickLanguageSettings() {
+     public static boolean clickLanguageSettings() throws InterruptedException {
     	 
     	 
          final int TIMEOUT_SECONDS = 5; 
@@ -57,6 +57,8 @@ public class LanguageSettings {
     	 //Click on LanguageTab
       	 
     	 wait.until(ExpectedConditions.elementToBeClickable(languageTabLocator)).click();
+    	 
+    	 Thread.sleep(3000);
     	
     	 // close when popup message appears
     	 
@@ -114,7 +116,7 @@ public class LanguageSettings {
         	 	
         	 	searchFrenchElement.click();
         
-        	 	Thread.sleep(3000);
+        	 	Thread.sleep(4000);
         	 	
         	 	((PressesKey) driver).pressKey(new KeyEvent(AndroidKey.F));
         	 	((PressesKey) driver).pressKey(new KeyEvent(AndroidKey.R));
